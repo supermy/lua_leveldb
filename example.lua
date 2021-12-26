@@ -1,3 +1,5 @@
+local socket=require("socket")
+
 LevelDB = require 'leveldb'
 db = LevelDB.new('./tmp')
 
@@ -14,9 +16,20 @@ function print_db_data()
   print("")
 end
 
+local t0 = socket.gettime()
+
 print("Set k3")
 db:set('k3', tostring(os.time()))
 print("")
+
+local t1 = socket.gettime()
+print("set one have time [毫秒]"..(t1-t0))
+
+local t0 = socket.gettime()
+db:get('k3')
+local t1 = socket.gettime()
+print("get one have time [毫秒]"..(t1-t0))
+
 
 print("Batch set k1 k2 k4 k5")
 db:batchSet({k1 = tostring(os.time()), k2 = '321321', k4 = '111', k5 = '222'})

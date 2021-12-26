@@ -7,6 +7,7 @@ This is a FFI library, provide some simple interface.
 
 * LuaJIT 
 
+busted.runner
 
 ## APIs
 
@@ -92,5 +93,15 @@ print('end')
 ## Test
 
 ```
+
+luarocks --lua-dir=/usr/local/opt/luajit  list
+luarocks --lua-dir=/usr/local/opt/luajit install busted
+luarocks --lua-dir=/usr/local/opt/luajit install penlight
+luarocks --lua-dir=/usr/local/opt/luajit install lua-term
+luarocks --lua-dir=/usr/local/opt/luajit install luasystem
+luarocks --lua-dir=/usr/local/opt/luajit install mediator_lua
+luarocks --lua-dir=/usr/local/opt/luajit install lua_cliargs
+luarocks --lua-dir=/usr/local/opt/luajit  install luassert
+
 bin/busted
 ```
